@@ -1,6 +1,6 @@
 <?php
 
-    define(WP_ENVIROMENT_TYPE, 'development');
+    define('WP_ENVIROMENT_TYPE', 'development');
 
     if (constant('WP_ENVIROMENT_TYPE') === 'development') {
         define('DB_NAME', 'new-theme');
