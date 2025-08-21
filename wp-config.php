@@ -27,6 +27,14 @@
 
     define( 'DB_COLLATE', '' );
 
+    $table_prefix = 'wp_';
+
+    define('WP_POST_REVISIONS', 10);
+    define('EMPTY_TRASH_DAYS', 14);
+    define('ENFORCE_GZIP', true);
+    define('WP_DEFAULT_THEME', 'new-theme');
+    define('WP_MEMORY_LIMIT', '1024M');
+
     if (! defined('ABSPATH')) { 
         define('ABSPATH', dirname(__FILE__) . '/');
     }
