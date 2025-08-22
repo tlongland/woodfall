@@ -1,10 +1,2 @@
-/*
-Theme Name: New Theme
-Author: Tom Longland
-Description: A custom theme for your website
-Version: 1.0
-*/
-
-body {
-    background-color: #f0f0f0;
-}
+body{background-color:#000;color:#fff}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJhc2UvdGhlbWUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxLQUNJLGlCQUFBLEtBQ0EsTUFBQSIsImZpbGUiOiJzdHlsZS5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5IHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjaztcbiAgICBjb2xvcjogd2hpdGU7XG59Il19 */
