@@ -11,7 +11,7 @@ const concat = require('gulp-concat');
 const gsass = require('gulp-dart-sass');
 
 const sourcemaps = require('gulp-sourcemaps');
-const prefix = require('gulp-autoprefixer');
+const autoprefixer = require('gulp-autoprefixer');
 const clean = require('gulp-clean-css');
 
 function watcher(cb) {
@@ -55,7 +55,7 @@ function styles() {
         outputStyle: 'compressed',
         quietDeps: true,
     }).on('error', gsass.logError))
-    // .pipe(prefix('last 2 versions'))
+    .pipe(autoprefixer())
     .pipe(clean({debug:true}))
     .pipe(sourcemaps.write())
     .pipe(dest('.'))

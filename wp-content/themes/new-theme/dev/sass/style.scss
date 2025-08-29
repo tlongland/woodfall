@@ -5,4 +5,5 @@ Description: A custom theme for your website
 Version: 1.0
 */
 
-@import 'base/theme';
+@use 'base/variables';
+@use 'base/theme';

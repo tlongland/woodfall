@@ -3,6 +3,7 @@
     function html5_support() {
         add_theme_support('html5', ['script', 'style']);
     }
+    add_action('after_setup_theme', 'html5_support');
 
     function theme_styles() {
         wp_enqueue_style('main_style', get_stylesheet_uri(), array(), null, 'all');

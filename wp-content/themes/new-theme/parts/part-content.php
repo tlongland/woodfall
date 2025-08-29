@@ -11,23 +11,24 @@
                 </section>
             <?php elseif( get_row_layout() == 'columns' ): ?>
                 <section>
-                <?php echo 'columns';
-                // while ( have_rows('content') ) : the_row();
-                //     switch(get_row_layout()) {
-                //         case 'text':
-                //             echo 'text';
-                //             break;
-                //         case 'image':
-                //             echo 'image';
-                //             break;
-                //         case 'blank':
-                //             echo 'blank';
-                //             break;
-                //         }
-
-                // endwhile;
-                // Do something...
-                ?></section>
+                    <?php if (have_rows('column_content')) : ?>
+                        <?php while(have_rows('column_content')) : the_row(); ?>
+                            <div class="col">
+                            <?php switch(get_row_layout()) {
+                                case 'text':
+                                    echo 'text';
+                                    break;
+                                case 'image':
+                                    echo 'image';
+                                    break;
+                                case 'blank':
+                                    echo 'blank';
+                                    break;
+                                }?>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </section>
             <?php endif;
 
         // End loop.

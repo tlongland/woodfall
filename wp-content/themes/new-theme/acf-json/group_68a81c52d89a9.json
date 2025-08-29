@@ -139,8 +139,8 @@
                         },
                         {
                             "key": "field_68a81d6a5752e",
-                            "label": "Content",
-                            "name": "content",
+                            "label": "Column Content",
+                            "name": "column_content",
                             "aria-label": "",
                             "type": "flexible_content",
                             "instructions": "",
@@ -280,5 +280,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1755848421
+    "modified": 1755947810
 }
