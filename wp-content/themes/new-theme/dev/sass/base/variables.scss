@@ -1,1 +1,21 @@
+@use "sass:math";
 $bg-colour: black;
+
+$margin: 4%;
+
+$breakpoints: (sm: 0, md: 1024px, lg: 1440px);
+$grid-columns: 12;
+
+$col : math.div(100% - 11 * $margin, 12);
+// $col-1: $col;
+// $col-2: (($col * 2) + $margin);
+// $col-3: ((($col + ($margin)) * 3) - $margin);
+// $col-4: ((($col + ($margin)) * 4) - $margin);
+// $col-5: ((($col + ($margin)) * 5) - $margin);
+// $col-6: ((($col + ($margin)) * 6) - $margin);
+// $col-7: ((($col + ($margin)) * 7) - $margin);
+// $col-8: ((($col + ($margin)) * 8) - $margin);
+// $col-9: ((($col + ($margin)) * 9) - $margin);
+// $col-10: ((($col + ($margin)) * 10) - $margin);
+// $col-11: ((($col + ($margin)) * 11) - $margin);
+// $col-12: (100%);

@@ -29,13 +29,54 @@
 
     //add_action('wp_head, 'preload_fonts');
 
-    $localised_js = array(
-        'location' => get_template_directory_uri(),
-        'enviroment' => constant('WP_ENVIROMENT_TYPE'),
-        'ajaxUrl' => admin_url('admin-ajax.php'),
-        'siteUrl' => get_option('siteurl'),
-        'origin' => esc_html(get_site_url())
-    );
+    function enqueue_scripts() {
+        $core_js = array();
+        $libraries = (object) [
+            'gsap' => true,
+            'scrollTrigger' => true,
+            'ScrollSmoother' => true,
+            'lozad' => true,
+        ];
 
-    wp_localize_script( 'theme-script', 'WP', $localised_js);
-    wp_enqueue_script( 'theme-script' );
+        if ($libraries->gsap) {
+            wp_register_script('gsap-script', get_template_directory_uri() . '/scripts/gsap.min.js', array(), null, true);
+            wp_enqueue_script('gsap-script');
+            array_push($core_js, 'gsap-script');
+        }
+
+        if ($libraries->scrollTrigger) {
+            wp_register_script('scrollTrigger-script', get_template_directory_uri() . '/scripts/scrollTrigger.min.js', array('gsap-script'), null, true);
+            wp_enqueue_script('scrollTrigger-script');
+            array_push($core_js, 'scrollTrigger-script');
+        }
+
+        if ($libraries->ScrollSmoother) {
+            wp_register_script('ScrollSmoother-script', get_template_directory_uri() . '/scripts/ScrollSmoother.min.js', array('gsap-script'), null, true);
+            wp_enqueue_script('ScrollSmoother-script');
+            array_push($core_js, 'ScrollSmoother-script');
+        }
+
+        if ($libraries->lozad) {
+            wp_register_script('lozad-script', get_template_directory_uri() . '/scripts/lozad.min.js', array(), null, true);
+            wp_enqueue_script('lozad-script');
+            array_push($core_js, 'lozad-script');
+        }
+
+        wp_enqueue_script('theme-script', get_template_directory_uri() . '/scripts/app.min.js', $core_js, null, true);
+
+        $localised_js = array(
+            'location' => get_template_directory_uri(),
+            'enviroment' => constant('WP_ENVIROMENT_TYPE'),
+            'ajaxUrl' => admin_url('admin-ajax.php'),
+            'siteUrl' => get_option('siteurl'),
+            'origin' => esc_html(get_site_url())
+        );
+    
+        wp_localize_script( 'theme-script', 'WP', $localised_js);
+        wp_enqueue_script( 'theme-script' );
+        array_push($core_js, 'theme-script');
+    }
+
+    add_action('wp_enqueue_scripts', 'enqueue_scripts');
+
+    

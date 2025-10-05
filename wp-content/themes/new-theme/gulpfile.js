@@ -11,7 +11,7 @@ const concat = require('gulp-concat');
 const gsass = require('gulp-dart-sass');
 
 const sourcemaps = require('gulp-sourcemaps');
-const autoprefixer = require('gulp-autoprefixer');
+const autoprefixer = require('gulp-autoprefixer').default;
 const clean = require('gulp-clean-css');
 
 function watcher(cb) {
@@ -22,12 +22,12 @@ function watcher(cb) {
     });
 
     watch(
-        'dev/js/**/*.js',
+        './dev/js/**/*.js',
         series(scripts, browserReload)
     );
 
     watch(
-        'dev/sass/**/*.scss',
+        './dev/sass/**/*.scss',
         series(styles)
     );
 
@@ -41,7 +41,8 @@ function browserReload(cb) {
 
 function scripts(cb) {
     return src([
-        'dev/js/app.js'
+        './dev/js/app.js',
+        './dev/js/core/**/*.js',
     ])
     .pipe(concat('app.min.js'))
     .pipe(uglify())
@@ -49,7 +50,7 @@ function scripts(cb) {
 }
 
 function styles() {
-    return src('dev/sass/style.scss')
+    return src('./dev/sass/style.scss')
     .pipe(sourcemaps.init())
     .pipe(gsass({
         outputStyle: 'compressed',

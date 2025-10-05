@@ -6,4 +6,7 @@ Version: 1.0
 */
 
 @use 'base/variables';
+@use 'base/reset';
+
 @use 'base/theme';
+@use 'base/columns.scss';

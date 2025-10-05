@@ -1,6 +1,6 @@
-@use 'base/variables';
+@use 'base/variables' as v;
 
 body {
-    background-color: variables.$bg-colour;
+    background-color: v.$bg-colour;
     color: white;
 }
